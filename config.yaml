@@ -17,3 +17,10 @@ ref:
       PoN:
       germline:
       
+
+params:
+  trim:
+  gatk:
+  hla_typing:
+  neoantigens_prediction:
+  
