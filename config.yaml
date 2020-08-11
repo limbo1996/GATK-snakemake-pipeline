@@ -1,0 +1,19 @@
+samples: sample.tsv
+
+ref:
+  bwa:
+    # reference genome
+    species: home_sapiens
+    release: 98
+    version: GRCH38
+  gatk:
+
+    BQSR:
+      dbsnp: "ref_data/*"
+      dbsnp1000G: "ref_data/*"
+      dbindle100G: "ref_data/*"
+
+    mutation_calling: 
+      PoN:
+      germline:
+      

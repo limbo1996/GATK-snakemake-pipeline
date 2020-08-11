@@ -1,0 +1,4 @@
+samples rank    plat    fq1 fq2
+A   1   X   a_1.fastq   a_2.fastq
+B   2   X   b_1.fastq   b_2.fastq
+C   3   X   c_1.fastq   c_2.fastq
