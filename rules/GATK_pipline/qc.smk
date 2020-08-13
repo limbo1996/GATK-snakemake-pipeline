@@ -1,3 +1,5 @@
+# 可以使用fastp
+
 rule fastqc:
     input: 
 

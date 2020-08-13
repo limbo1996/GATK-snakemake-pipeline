@@ -1,5 +1,4 @@
 # 获取参开基因组并构建索引
-
 # 获取参开基因组
 rule get_genome:
     output:
