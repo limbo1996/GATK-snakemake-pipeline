@@ -1,5 +1,4 @@
-# 获取参开基因组并构建索引
-# 获取参开基因组
+# 获取参考基因组
 rule get_genome:
     output:
         "ref_data/genome.fasta"
@@ -14,4 +13,15 @@ rule get_genome:
     wrapper:
         "0.64.0/bio/reference/ensembl-sequence"
 
-# 构建索引， 需要conda yaml 主要是使用samtools
+# 构建bwa索引
+rule bwa_index:
+    input: 
+        "ref_data/genome.fasta"
+    output:
+        multiext("ref_data/genome.fasta", ".bwt", ".pac", ".sa",".amb", ".ann")
+    log:
+        "logs/bwa_index.log"
+    params:
+        algorithm="bwtsw"
+    wrapper:
+        "0.64.0/bio/bwa/index"
