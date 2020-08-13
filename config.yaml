@@ -18,7 +18,6 @@ ref:
       
 
 params:
-  trim:
   gatk:
   hla_typing:
   neoantigens_prediction:
