@@ -5,9 +5,8 @@ ref:
     # reference genome
     species: home_sapiens
     release: 98
-    version: GRCH38
+    build: GRCH38
   gatk:
-
     BQSR:
       dbsnp: "ref_data/*"
       dbsnp1000G: "ref_data/*"
