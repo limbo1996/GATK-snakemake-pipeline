@@ -21,6 +21,7 @@ params:
   java: "-Xmx12G -Djava.io.tmpdir=~/tmp"
   gatk:
     gatk_baserecalibrator: ""
+    mutect2: ""
   hla_typing:
   neoantigens_prediction:
   
