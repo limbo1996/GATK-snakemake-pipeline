@@ -7,9 +7,7 @@ rule razers3:
     log:
         "logs/razers3/{sample}.log"
     params:
-        genome="ref_data/",
-        # additional parameters
-        extra=""
+        genome="ref_data/"
     threads: 8
     wrapper:
         "0.64.0/bio/razers3"
