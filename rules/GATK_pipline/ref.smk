@@ -45,4 +45,8 @@ rule get_fai:
     input: 
         "ref_data/genome.fasta"
     output: 
-    run: 
+        "ref_data/genome.fasta.fai"
+    log:
+        "logs/samtools/create_fai.log"
+    wrapper:
+        "0.64.0/bio/samtools/faidx"
