@@ -16,7 +16,7 @@ rule fastp_se:
     threads: 1
     wrapper:
         "0.64.0/bio/fastp"
-        
+
 rule fastp_pe:
     input:
         sample=["reads/pe/{sample}_1.fastq", "reads/pe/{sample}_2.fastq"]
