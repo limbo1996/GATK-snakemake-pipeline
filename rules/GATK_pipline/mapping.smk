@@ -15,15 +15,30 @@ rule bwa_mem:
     wrapper:
         "0.64.0/bio/bwa/mem"
 
-rule markduplication:
-    input: 
-    output: 
-    run: 
+rule mark_duplicates:
+    input:
+        "mapped/{sample}.bam"
+    output:
+        bam="dedup/{sample}.bam",
+        metrics="dedup/{sample}.metrics.txt"
+    log:
+        "logs/picard/dedup/{sample}.log"
+    wrapper:
+        "0.64.0/bio/picard/markduplicates"
 
-rule BaseRecalibrator:
-    input: 
-    output: 
-    run: 
+rule gatk_baserecalibrator:
+    input:
+        bam="mapped/{sample}.bam",
+        ref="genome.fasta",
+        dict="genome.dict" 
+    output:
+        recal_table="recal/{sample}.grp"
+    log:
+        "logs/gatk/baserecalibrator/{sample}.log"
+    params:
+        extra=config["params"]["gatk"]["gatk_baserecalibrator"]
+    wrapper:
+        "0.64.0/bio/gatk/baserecalibrator"
 
 rule Apply:
     input: 

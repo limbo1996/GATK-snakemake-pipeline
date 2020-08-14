@@ -25,3 +25,24 @@ rule bwa_index:
         algorithm="bwtsw"
     wrapper:
         "0.64.0/bio/bwa/index"
+
+# 构建dict索引
+rule get_dict:
+    input: 
+        "ref_data/genome.fasta"
+    output: 
+        "ref_data/genome.dict"
+    log:
+        "logs/samtools/create_dict.log"
+    cache: True
+    conda:
+        "../envs/samtools.yaml"
+    shell: 
+        "samtools dict {input} > {output} 2 > {log}"
+
+# 构建fai文件
+rule get_fai:
+    input: 
+        "ref_data/genome.fasta"
+    output: 
+    run: 

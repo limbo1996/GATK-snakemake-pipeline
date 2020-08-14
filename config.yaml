@@ -18,7 +18,9 @@ ref:
       
 
 params:
+  java: ""
   gatk:
+    gatk_baserecalibrator: ""
   hla_typing:
   neoantigens_prediction:
   
