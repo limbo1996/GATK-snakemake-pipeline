@@ -36,11 +36,22 @@ rule gatk_baserecalibrator:
     log:
         "logs/gatk/baserecalibrator/{sample}.log"
     params:
-        extra=config["params"]["gatk"]["gatk_baserecalibrator"]
+        extra=config["params"]["gatk"]["gatk_baserecalibrator"] # 添加多个konwn site，待做
+        java_opts=config["params"]["java"]
     wrapper:
         "0.64.0/bio/gatk/baserecalibrator"
 
-rule Apply:
-    input: 
-    output: 
-    run: 
+rule gatk_applybqsr:
+    input:
+        bam="mapped/{sample}.bam",
+        ref="genome.fasta",
+        dict="genome.dict",
+        recal_table="recal/{sample}.grp"
+    output:
+        bam="recal/{sample}_BQSR.bam"
+    log:
+        "logs/gatk/gatk_applybqsr/{sample}.log"
+    params:
+        java_opts=config["params"]["java"]
+    wrapper:
+        "0.64.0/bio/gatk/applybqsr"

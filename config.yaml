@@ -18,7 +18,7 @@ ref:
       
 
 params:
-  java: ""
+  java: "-Xmx12G -Djava.io.tmpdir=~/tmp"
   gatk:
     gatk_baserecalibrator: ""
   hla_typing:
