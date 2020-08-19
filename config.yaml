@@ -11,7 +11,6 @@ ref:
       dbsnp: "ref_data/*"
       dbsnp1000G: "ref_data/*"
       dbindle100G: "ref_data/*"
-
     mutation_calling: 
       PoN:
       germline:
