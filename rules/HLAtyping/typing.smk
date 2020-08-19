@@ -7,5 +7,6 @@ rule optitype:
         "logs/optitype/{sample}.log"
     params:
         sequencing_type="dna",
+        
     wrapper:
         "0.64.0/bio/optitype"
