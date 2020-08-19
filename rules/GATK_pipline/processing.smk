@@ -1,4 +1,5 @@
 '''
+约定snakemake版本
 该文件主要用来提前处理各个样本
 主要是分辨样本是单端还是双端（质控）
 样本类型， T/N（calling）
@@ -25,7 +26,9 @@ rule download_vep_plugins:
         release=config["ref"]["bwa"]["release"]
     wrapper:
         "0.64.0/bio/vep/plugins"
-
+'''
+有一个wildtype插件需要自己下
+'''
 rule get_vep_cache:
     output:
         directory("resources/vep/cache")

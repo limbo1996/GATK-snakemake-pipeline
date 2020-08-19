@@ -1,7 +1,7 @@
 configfile: "../config.yaml"
 rule download_vep_plugins:
     output:
-        "resources/vep/plugins"
+        directory("resources/vep/plugins")
     params:
         release=config["ref"]["bwa"]["release"]
     wrapper:
