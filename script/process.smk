@@ -31,6 +31,6 @@ def get_sample_info_mapping(wildcards):
         sample=wildcards.sample,
         platform=sample.loc[(wildcards.samples), "plat"])
 
-def get_patient_file(wildcards):
-	tumor = sample.loc[(wildcards.samples), ["samples", "type", "Patient"]]
+def get_normal(wildcards):
+	tumor = patient.loc[(patient["Tumor"] == (wildcards.samples)), ]
 	return expand("recal/{samples}_BQSR.bam", samples=tumor["samples"])
