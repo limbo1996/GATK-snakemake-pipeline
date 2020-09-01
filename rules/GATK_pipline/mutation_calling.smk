@@ -5,7 +5,7 @@ rule mutect2:
 '''
     input:
         fasta = "genome/genome.fasta",
-        tumor = "mapped/{sample}.bam",
+        tumor = "mapped/{sample}.bam",# 添加函数替换
         normal = "mapped/{sample}.bam"
     output:
         vcf = "variant/{sample}.vcf"
