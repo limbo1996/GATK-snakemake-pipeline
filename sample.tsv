@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-samples plat    fq1 fq2 Is_Tumor    patient
-A   ILLUMINA   a_1.fastq   a_2.fastq    Tumor   Pt1
-B   ILLUMINA   b_1.fastq   b_2.fastq    Normal  Pt1
-C   ILLUMINA   c_1.fastq   c_2.fastq    Tumor   Pt2
-D   ILLUMINA   d.fastq  NA  Normal  Pt2
-=======
-samples plat    fq1 fq2 type    Patient
-A   ILLUMINA   a_1.fastq   a_2.fastq    T   1
-B   ILLUMINA   b_1.fastq   b_2.fastq    N   1
-C   ILLUMINA   c_1.fastq   c_2.fastq    T   2
-D   ILLUMINA   d.fastq      N   2
->>>>>>> dev
+samples	fq1	fq2	matched_normal
+A_normal	a_1.fastq	a_2.fastq	
+A_tumor	b_1.fastq	b_2.fastq	A_normal
+B_normal	c_1.fastq	c_2.fastq	
+B_tumor	d.fastq		B_normal

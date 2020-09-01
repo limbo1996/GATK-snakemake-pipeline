@@ -14,4 +14,24 @@ reprot = "../reports/workflow.rst"
 ##########config file
 configfile: "../config.yaml"
 
-validate(config, )
+# validate(config, )
+
+
+sample = pd.read_table(config["samples"], sep = "\t")
+
+def get_fastq(wildcards):
+	fastq = sample.loc[(wildcards.samples), ["fq1", "fq2"]]
+	if len(fastq) == 1:
+		return {"fastq_1" : fastq.fq1, "fastq_2" : fastq.fq2}
+	return {"fastq" : fastq.fq1}
+
+def get_sample_info_mapping(wildcards):
+    return r"-R '@RG\tID:{sample}\tSM:{sample}\tPL:{platform}'".format(
+        sample=wildcards.sample,
+        platform=sample.loc[(wildcards.samples), "plat"])
+
+def get_normal(wildcards):
+	return expand(sample.loc[(wildcards.samples), "matched_normal"])
+
+def get_normal_bam(wildcards):
+	return expand("recal/{samples}_BQSR.bam", samples=get_normal(wildcards))

@@ -1,13 +1,13 @@
 rule bwa_mem:
     input:
-        reads=["reads/{sample}_1.fastq", "reads/{sample}_2.fastq"]
+        reads=["reads/{samples}_1.fastq", "reads/{samples}_2.fastq"]
     output:
-        "mapped/{sample}.bam"
+        temp("mapped/{samples}.bam")
     log:
         "logs/bwa_mem/{sample}.log"
     params:
         index="genome",
-        extra=r"-R '@RG\tID:{sample}\tSM:{sample}'",
+        extra=get_sample_info_mapping,
         sort="picard",             
         sort_order="coordinate",  
         sort_extra=""            
@@ -19,8 +19,8 @@ rule mark_duplicates:
     input:
         "mapped/{sample}.bam"
     output:
-        bam="dedup/{sample}.bam",
-        metrics="dedup/{sample}.metrics.txt"
+        temp(bam="dedup/{samples}.bam"),
+        temp(metrics="dedup/{samples}.metrics.txt")
     log:
         "logs/picard/dedup/{sample}.log"
     wrapper:
@@ -28,11 +28,11 @@ rule mark_duplicates:
 
 rule gatk_baserecalibrator:
     input:
-        bam="mapped/{sample}.bam",
+        bam="mapped/{samples}.bam",
         ref="genome.fasta",
         dict="genome.dict" 
     output:
-        recal_table="recal/{sample}.grp"
+        temp("recal/{samples}.grp")
     log:
         "logs/gatk/baserecalibrator/{sample}.log"
     params:
@@ -43,12 +43,12 @@ rule gatk_baserecalibrator:
 
 rule gatk_applybqsr:
     input:
-        bam="mapped/{sample}.bam",
+        bam="mapped/{samples}.bam",
         ref="genome.fasta",
         dict="genome.dict",
-        recal_table="recal/{sample}.grp"
+        recal_table="recal/{samples}.grp"
     output:
-        bam="recal/{sample}_BQSR.bam"
+        bam="recal/{samples}_BQSR.bam"
     log:
         "logs/gatk/gatk_applybqsr/{sample}.log"
     params:

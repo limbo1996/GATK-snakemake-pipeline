@@ -1,4 +1,5 @@
 samples: sample.tsv
+Patient: Patient.tsv
 
 ref:
   bwa:
