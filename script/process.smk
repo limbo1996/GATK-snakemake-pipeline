@@ -18,7 +18,6 @@ configfile: "../config.yaml"
 
 
 sample = pd.read_table(config["samples"], sep = "\t")
-patient = pd.read_table(config["Patient"])
 
 def get_fastq(wildcards):
 	fastq = sample.loc[(wildcards.samples), ["fq1", "fq2"]]
@@ -32,5 +31,7 @@ def get_sample_info_mapping(wildcards):
         platform=sample.loc[(wildcards.samples), "plat"])
 
 def get_normal(wildcards):
-	tumor = patient.loc[(patient["Tumor"] == (wildcards.samples)), ]
-	return expand("recal/{samples}_BQSR.bam", samples=tumor["samples"])
+	return expand(sample.loc[(wildcards.samples), "matched_normal"])
+
+def get_normal_bam(wildcards):
+	return expand("recal/{samples}_BQSR.bam", samples=get_normal(wildcards))
