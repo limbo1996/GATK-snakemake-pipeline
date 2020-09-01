@@ -26,3 +26,8 @@ def get_fastq(wildcards):
 		return {"fastq_1" : fastq.fq1, "fastq_2" : fastq.fq2}
 	return {"fastq" : fastq.fq1}
 
+def get_sample_info_mapping(wildcards):
+    return r"-R '@RG\tID:{sample}\tSM:{sample}\tPL:{platform}'".format(
+        sample=wildcards.sample,
+        platform=sample.loc[(wildcards.samples), "plat"])
+

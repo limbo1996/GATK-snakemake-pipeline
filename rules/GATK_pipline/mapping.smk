@@ -7,7 +7,7 @@ rule bwa_mem:
         "logs/bwa_mem/{sample}.log"
     params:
         index="genome",
-        extra=r"-R '@RG\tID:{sample}\tSM:{sample}'",
+        extra=get_sample_info_mapping,
         sort="picard",             
         sort_order="coordinate",  
         sort_extra=""            
