@@ -25,3 +25,4 @@ def get_fastq(wildcards):
 	if len(fastq) == 1:
 		return {"fastq_1" : fastq.fq1, "fastq_2" : fastq.fq2}
 	return {"fastq" : fastq.fq1}
+
