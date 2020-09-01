@@ -14,10 +14,14 @@ reprot = "../reports/workflow.rst"
 ##########config file
 configfile: "../config.yaml"
 
-validate(config, )
+# validate(config, )
 
 
-sample = pd.read_table()
+sample = pd.read_table(config["samples"], sep = "\t")
 
 
-def get_fastq():
+def get_fastq(wildcards):
+	fastq = sample.loc[(wildcards.samples), ["fq1", "fq2"]]
+	if len(fastq) == 1:
+		return {"fastq_1" : fastq.fq1, "fastq_2" : fastq.fq2}
+	return {"fastq" : fastq.fq1}

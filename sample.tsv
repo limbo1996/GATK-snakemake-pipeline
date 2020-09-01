@@ -1,5 +1,5 @@
-samples plat    fq1 fq2 type    Patient
-A   ILLUMINA   a_1.fastq   a_2.fastq    T   1
-B   ILLUMINA   b_1.fastq   b_2.fastq    N   1
-C   ILLUMINA   c_1.fastq   c_2.fastq    T   2
-D   ILLUMINA   d.fastq      N   2
+samples	plat	fq1	fq2	type	Patient
+A	ILLUMINA	a_1.fastq	a_2.fastq	T	1
+B	ILLUMINA	b_1.fastq	b_2.fastq	N	1
+C	ILLUMINA	c_1.fastq	c_2.fastq	T	2
+D	ILLUMINA	d.fastq		N	2
