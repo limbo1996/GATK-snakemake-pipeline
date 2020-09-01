@@ -4,7 +4,7 @@
 """
 rule fastp_se:
     input:
-        sample=["reads/se/{sample}.fastq"]
+        sample=unpack(get_fastq)
     output:
         trimmed="trimmed/se/{sample}.fastq",
         html="report/se/{sample}.html",
@@ -19,7 +19,7 @@ rule fastp_se:
 
 rule fastp_pe:
     input:
-        sample=["reads/pe/{sample}_1.fastq", "reads/pe/{sample}_2.fastq"]
+        sample=unpack(get_fastq)
     output:
         trimmed=["trimmed/pe/{sample}_1.fastq", "trimmed/pe/{sample}_2.fastq"],
         html="report/pe/{sample}.html",

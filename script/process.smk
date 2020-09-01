@@ -15,3 +15,9 @@ reprot = "../reports/workflow.rst"
 configfile: "../config.yaml"
 
 validate(config, )
+
+
+sample = pd.read_table()
+
+
+def get_fastq():
