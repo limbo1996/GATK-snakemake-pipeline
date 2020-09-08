@@ -1,5 +1,5 @@
-samples	fq1	fq2	matched_normal
-A_normal	a_1.fastq	a_2.fastq	
-A_tumor	b_1.fastq	b_2.fastq	A_normal
-B_normal	c_1.fastq	c_2.fastq	
-B_tumor	d.fastq		B_normal
+samples	fq1	fq2	matched_normal  sample_name plat
+A_normal	a_1.fastq	a_2.fastq	    SRR1234567   ILLUMINA
+A_tumor	b_1.fastq	b_2.fastq	A_normal    SRR2345678  ILLUMINA
+B_normal	c_1.fastq	c_2.fastq	    SRR3456789  ILLUMINA
+B_tumor	d.fastq		B_normal    SRR4567890  ILLUMINA

@@ -1,5 +1,5 @@
 configfile: "config.yaml"
-# sra2fastq的步骤补充上去
+
 include: "rules/GATK_pipline/ref.smk"
 include: "rules/GATK_pipline/qc.smk"
 include: "rules/GATK_pipline/mapping.smk"

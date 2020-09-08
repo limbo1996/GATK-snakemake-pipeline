@@ -2,7 +2,7 @@ rule mutect2:
     input:
         fasta = "genome/genome.fasta",
         normal = get_normal_bam,
-        tumor = "recal/{samples}_BQSR.bam",# 添加函数替换
+        tumor = "recal/{samples}_BQSR.bam",
     output:
         vcf = "variant/{samples}.vcf"
     message:
