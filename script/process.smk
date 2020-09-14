@@ -26,16 +26,13 @@ def get_fastq(wildcards):
 	return {"fastq" : fastq.fq1}
 
 def get_sample_info_mapping(wildcards):
-    return r"-R '@RG\tID:{sample_name}\tSM:{sample_name}\tPL:{platform}'".format(
-        sample_name=sample.loc[(wildcards.samples), 
+    return r"-R '@RG\tID:{sample_name}\tSM:{sample_name}\tPL:{platform}'".format( sample_name=sample.loc[(wildcards.samples), 
 			["sample_name"]]
         platform=sample.loc[(wildcards.samples), 
 			"plat"])
 
 def get_normal(wildcards):
-	return expand(sample.loc[(wildcards.samples), 
-					"matched_normal"])
+	return expand(sample.loc[(wildcards.samples), "matched_normal"])
 
 def get_normal_bam(wildcards):
-	return expand("recal/{samples}_BQSR.bam", 
-					samples=get_normal(wildcards))
+	return expand("recal/{samples}_BQSR.bam", samples=get_normal(wildcards))
