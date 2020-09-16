@@ -50,3 +50,12 @@ rule get_fai:
         "logs/samtools/create_fai.log"
     wrapper:
         "0.64.0/bio/samtools/faidx"
+
+
+rule download_vep_plugins:
+    output:
+        directory("resources/vep/plugins")
+    params:
+        release=100
+    wrapper:
+        "0.65.0/bio/vep/plugins"

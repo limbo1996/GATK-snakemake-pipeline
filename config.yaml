@@ -5,7 +5,7 @@ ref:
   bwa:
     # reference genome
     species: home_sapiens
-    release: 98
+    release: 100
     build: GRCH38
   gatk:
     BQSR:
